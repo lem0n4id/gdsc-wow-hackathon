@@ -1,0 +1,191 @@
+{% extends "base.html"%}
+
+{% block head %} 
+
+{% endblock %}
+
+{% block body %} 
+
+<div class="container">
+    <header>
+        <h1 id="title">At what age will you die?</h1>
+        <p id="description">This survey will tell you when you're gonna die.</p>
+    </header>
+
+    <main>
+        <form id="survey-form" action='/' method="POST">
+            <!-- "chew", "smoke", "alcohol","treatment_source", "marital_status", "injury_treatment_type","illness_type","symptoms_pertaining_illness","sought_medical_care","diagnosed_for","regular_treatment_source",
+"iscoveredbyhealthscheme" -->
+        <fieldset>
+            <label id="name-label">Enter your name: 
+                <input id="name" type="text" placeholder="" name="name" required />
+            </label>
+            <label>Select your sex:
+                <select id="dropdown" name="sex">
+                    <option>(Select one)</option>
+                    <option>Male (0)</option>
+                    <option>Female (1)</option>
+                </select>
+            </label>
+            <label>Select your highest qualification:
+                <select id="dropdown" name="highest_qualification">
+                    <option>(Select one)</option>
+                    <option>(0)</option>
+                    <option>(1)</option>
+                    <option>(2)</option>
+                    <option>(3)</option>
+                    <option>(4)</option>
+                    <option>(5)</option>
+                    <option>(6)</option>
+                    <option>(7)</option>
+                    <option>(8)</option>
+                    <option>(9)</option>
+                </select>
+            </label>
+            <label>Are you from rural area:
+                <select id="dropdown" name="rural">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+            <label>Are you disabled:
+                <select id="dropdown" name="disability_status">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+            <label>Do you drink filtered water:
+                <select id="dropdown" name="is_water_filter">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+            <!-- TODO "regular_treatment_source",
+            "iscoveredbyhealthscheme" -->
+            <label>Do you chew tobacco:
+                <select id="dropdown" name="chew">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Do you smoke:
+                <select id="dropdown" name="smoke">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Do you consume alcohol:
+                <select id="dropdown" name="alcohol">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Select your treatment source:
+                <select id="dropdown" name="treatment_source">
+                    <option>(Select one)</option>
+                    <option>(0)</option>
+                    <option>(1)</option>
+                    <option>(2)</option>
+                    <option>(3)</option>
+                    <option>(4)</option>
+                </select>
+            </label>
+
+            <label>Select your marital status:
+                <select id="dropdown" name="marital_status">
+                    <option>(Select one)</option>
+                    <option>Married (0)</option>
+                    <option>Widowed (1)</option>
+                    <option>Divorced (2)</option>
+                    <option>Separated (3)</option>
+                    <option>Never Married (4)</option>
+                </select>
+            </label>
+
+            <label>Select your injury treatment type:
+                <select id="dropdown" name="injury_treatment_type">
+                    <option>(Select one)</option>
+                    <option>(0)</option>
+                    <option>(1)</option>
+                    <option>(2)</option>
+                    <option>(3)</option>
+                    <option>(4)</option>
+                    <option>(5)</option>
+                </select>
+            </label>
+
+            <label>Select your illness type:
+                <select id="dropdown" name="illness_type">
+                    <option>(Select one)</option>
+                    <option>(0)</option>
+                    <option>(1)</option>
+                    <option>(2)</option>
+                    <option>(3)</option>
+                    <option>(4)</option>
+                    <option>(5)</option>
+                    <option>(6)</option>
+                    <option>(7)</option>
+                </select>
+            </label>
+
+            <label>Do you experience symptoms pertaining to your illness:
+                <select id="dropdown" name="symptoms_pertaining_illness">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Have you sought medical care in the past year:
+                <select id="dropdown" name="sought_medical_care">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Have you been diagnosed for a non-communicable disease:
+                <select id="dropdown" name="diagnosed_for">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+
+            <label>Select your regular treatment source:
+                <select id="dropdown" name="regular_treatment_source">
+                    <option>(Select one)</option>
+                    <option>(0)</option>
+                    <option>(1)</option>
+                    <option>(2)</option>
+                    <option>(3)</option>
+                    <option>(4)</option>
+                </select>
+            </label>
+            <label>is covered by health scheme?
+                <select id="dropdown" name="iscoveredbyhealthscheme">
+                    <option>(Select one)</option>
+                    <option>No (0)</option>
+                    <option>Yes (1)</option>
+                </select>
+            </label>
+            
+        </fieldset> 
+        <input id="submit" type="submit" value="Submit" />
+
+        </form>
+    </main>
+</div>
+<footer><h3>Made with ❤️ by <a href="https://lenincodes.co/socials">Lenin</a></h3></footer>
+  
+
+{% endblock %}

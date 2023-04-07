@@ -1,36 +1,30 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from keras.models import model_from_json
 import numpy as np
 from get_model import saved
+from utils import parse_form_data
 
 model = saved()
 
 app = Flask(__name__)
 
 
-@app.route("/")
-def home():
-    return "This is the home page"
+@app.route("/", methods=['GET','POST'])
+def survey():
+    if request.method == 'POST':
+        data = request.form
+        data1 = parse_form_data(data)
+        # data_for_model = np.array([[data1["age"], data1["sex"], data1["highest_qualification"], data1["rural"], data1["disability_status"], data1["is_water_filter"], data1["chew"], data1["smoke"], data1["alcohol"], data1["treatment_source"], data1["marital_status"], data1["injury_treatment_type"], data1["illness_type"], data1["symptoms_pertaining_illness"], data1["sought_medical_care"], data1["diagnosed_for"], data1["regular_treatment_source"], data1["iscoveredbyhealthscheme"]]])
+        columns = ["sex", "highest_qualification", "rural", "disability_status", "is_water_filter", "chew", "smoke", "alcohol","treatment_source"]
+        data_for_model = np.array([[data1.get(col, 0) for col in columns]])
+        pred = model.predict(data_for_model)
 
+        pred_list = pred.tolist()
+        # return jsonify(pred_list)
+        return render_template("result.html",value=pred_list[0])
+    else:
+        return render_template("index.html")
 
-@app.route("/predict", methods=["POST"])
-def pred():
-    data1 = float(request.form['a'])
-    data2 = float(request.form['b'])
-    data3 = int(request.form['c'])
-    data4 = float(request.form['d'])
-    data5 = float(request.form['e'])
-    data6 = float(request.form['f'])
-    data7 = float(request.form['g'])
-    data8 = float(request.form['h'])
-    data9 = float(request.form['i'])
-
-    arr = np.array(
-        [[data1, data2, data3, data4, data5, data6, data7, data8, data9]])
-    pred = model.predict(arr)
-
-    pred_list = pred.tolist()
-    return jsonify(pred_list)
 
 
 if __name__ == "__main__":
